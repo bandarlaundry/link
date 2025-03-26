@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry POS</title>
+  <link rel="stylesheet" href="ilp.css">
+  <link rel="stylesheet" href="log.css">
+</head>
+<body>
+   <div class="login-container">
+    <!-- Login Form -->
+    <form id="loginForm" class="login-form">
+      <h2>Login</h2>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <p id="error-message" class="error-message"></p>
+    </form>
+
+ <div id="content" class="content" style="display: none;">
+   
+  <div class="container">
+    <!-- Customer Data Section -->
+    <div class="customer-data">
+      <h3>Informasi Pelanggan</h3>
+      <label for="name">Nama:</label>
+      <input type="text" id="name" placeholder="Tuliskan nama pelanggan" required>
+
+      <label for="address">Alamat:</label>
+      <textarea id="address" placeholder="Tuliskan alamat pelanggan" rows="3"></textarea>
+
+      <label for="phone">Nomor Whatsapp:</label>
+      <input type="tel" id="phone" placeholder="Tuliska nomor WA dengan benar (e.g., 085773009666)" required>
+    </div>
+
+    <!-- Product Selection Section -->
+    <div class="product-selection">
+      <h3>Tambah Produk</h3>
+      <div id="product-list">
+        <!-- Product rows will be dynamically added here -->
+      </div>
+      <button onclick="addProductRow()">Tambah Produk Tersedia</button>
+      <button onclick="addCustomProductRow()">Tambah Produk Tak Tersedia</button>
+    </div>
+
+    <!-- Discount and Down Payment Section -->
+    <div class="discount-payment">
+      <h3>Discount & Down Payment</h3>
+      <label for="discount">Discount (%):</label>
+      <input type="number" id="discount" min="0" max="100" value="0">
+
+      <label for="down-payment">Down Payment (Rp):</label>
+      <input type="number" id="down-payment" min="0" value="0">
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary hidden">
+      <h3>Rangkuman Transaksi</h3>
+      <p><strong>Nama Pelanggan:</strong> <span id="summary-name"></span></p>
+      <p><strong>Alamat:</strong> <span id="summary-address"></span></p>
+      <p><strong>Whatsapp:</strong> <span id="summary-phone"></span></p>
+      <p><strong>Produk:</strong></p>
+      <ul id="summary-products"></ul>
+      <p><strong>Tanggal:</strong> <span id="summary-date"></span></p>
+      <p><strong>Invoice:</strong> <span id="summary-invoice"></span></p>
+      <p><strong>Total Harga:</strong> Rp <span id="summary-total"></span></p>
+      <p><strong>Discount:</strong> <span id="summary-discount"></span>%</p>
+      <p><strong>Down Payment:</strong> Rp <span id="summary-down-payment"></span></p>
+      <p><strong>Jumlah Akhir:</strong> Rp <span id="summary-final"></span></p>
+    </div>
+
+    <!-- Action Buttons -->
+    <button onclick="calculateSummary()">Hitung</button>
+    <button onclick="exportToTxt()" class="hidden" id="export-btn">Cetak Via TXT</button>
+    <button onclick="sendToWhatsApp()" class="hidden" id="whatsapp-btn">Kirim Ke WhatsApp</button>
+  </div>
+
+   <button id="logoutBtn" class="btn"><span id="expiryDate"></span> Logout</button>
+        <div id="footer"></div>
+     </div>
+     
+  <script src="log.js"></script>
+  <script src="ilp.js"></script>
+</body>
+</html>
